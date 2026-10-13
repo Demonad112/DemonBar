@@ -5,10 +5,10 @@ import type { Call, GitInfo } from '../types'
 import { gitInfo } from './format'
 import { THEME as T } from './theme'
 
-const tickAtom = atom({ plugin: 'statusbar', key: 'tick' } as const, 0)
-const callsAtom = atom({ plugin: 'statusbar', key: 'calls' } as const, [] as Call[])
+const tickAtom = atom({ plugin: 'demonbar', key: 'tick' } as const, 0)
+const callsAtom = atom({ plugin: 'demonbar', key: 'calls' } as const, [] as Call[])
 const gitAtom = atom(
-  { plugin: 'statusbar', key: 'git' } as const,
+  { plugin: 'demonbar', key: 'git' } as const,
   { state: 'unknown', branch: '', stat: '', files: [] } as GitInfo,
 )
 

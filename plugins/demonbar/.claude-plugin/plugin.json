@@ -1,5 +1,5 @@
 {
-  "name": "statusbar",
+  "name": "demonbar",
   "version": "1.0.0",
   "description": "One mod for the status band, spinner, reply footer, panes, tool rows and !refine. Colors and labels come from hooks/theme.ts, which each profile supplies.",
   "types": "./types/index.d.ts",

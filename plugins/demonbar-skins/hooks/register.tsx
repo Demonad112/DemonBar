@@ -341,7 +341,7 @@ reply width: ${lastColumns} columns`
     const kind = kindOf(e.props.tool)
     const active = await activeSkin($)
 
-    // Status-Bar patch: with `rail` off, tool rows are left to the statusbar mod's tool-rows.
+    // DemonBar patch: with `rail` off, tool rows are left to the demonbar mod's tool-rows.
     if (kind === null || active === null || !active.prefs.rail) {
       return next(e)
     }
@@ -449,7 +449,7 @@ reply width: ${lastColumns} columns`
   on('ui.render', { component: 'Spinner' }, async ($, e, next) => {
     const active = await activeSkin($)
 
-    // Status-Bar patch: with `shimmer` off, the spinner is left to the statusbar mod's spinner.
+    // DemonBar patch: with `shimmer` off, the spinner is left to the demonbar mod's spinner.
     if (active === null || !active.prefs.shimmer) {
       return next(e)
     }
@@ -478,7 +478,7 @@ reply width: ${lastColumns} columns`
   on('ui.render', { component: 'TurnDuration' }, async ($, e, next) => {
     const active = await activeSkin($)
 
-    // Status-Bar patch: with `rail` off, the turn footer is the statusbar mod's reply footer.
+    // DemonBar patch: with `rail` off, the turn footer is the demonbar mod's reply footer.
     if (active === null || !active.prefs.rail) {
       return next(e)
     }

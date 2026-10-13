@@ -19,7 +19,7 @@ export type Footer = { text: string; seconds: number; usd: number | null }
 
 declare module 'claude-code' {
   interface PluginState {
-    statusbar: {
+    demonbar: {
       snap: Snap | null
       tick: number
       calls: Call[]

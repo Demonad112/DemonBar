@@ -184,7 +184,7 @@ function checkPrereqs(backendName) {
       ? 'Git Bash not found on PATH. The status line runs through bash: install Git for Windows (winget install Git.Git), then re-run install.'
       : 'bash not found on PATH; the status line command needs it.')
   }
-  if (backendName === 'ccstatusline') {
+  if (backendName === 'demonbar' || backendName === 'ccstatusline') {
     const r = spawnSync(process.platform === 'win32' ? 'where' : 'which', ['ccstatusline'], { stdio: 'ignore' })
     if (r.status !== 0) notes.push('ccstatusline (npm package, the status-line row backend) not found.')
   }
@@ -221,7 +221,7 @@ function cmdInstall(opts) {
 
   const backend = fs.readFileSync(path.join(root, MOD, 'bin', 'active-profile.txt'), 'utf8').trim()
   const notes = checkPrereqs(backend)
-  if (backend === 'ccstatusline' && !opts.noBackend && notes.some(n => n.startsWith('ccstatusline'))) {
+  if ((backend === 'demonbar' || backend === 'ccstatusline') && !opts.noBackend && notes.some(n => n.startsWith('ccstatusline'))) {
     if (process.env.DEMONBAR_SKIP_NPM === '1') notes.push('(DEMONBAR_SKIP_NPM=1: skipped npm install)')
     else { installBackend(); }
   }
@@ -270,7 +270,7 @@ function cmdStatus() {
   log(`  statusLine : ${sl ? (isOurs(sl) ? 'DemonBar' : 'OTHER: ' + sl) : 'not set'}`)
   log(`  plugin dirs: ${dirsOurs.length ? dirsOurs.join(', ') : 'DemonBar not listed'}`)
   const backend = (readIf(path.join(P.kit, MOD, 'bin', 'active-profile.txt')) || '').toString().trim()
-  log(`row backend: ${backend || '(unknown)'}${backend === 'ccstatusline' ? '' : ''}`)
+  log(`row backend: ${backend || '(unknown)'}`)
   log(`ccstatusline config: ${fs.existsSync(P.ccs) ? P.ccs : 'missing'}`)
   log(`backup    : ${st && st.backupId ? path.join(P.backups, st.backupId) : '(none)'}`)
   // conflicts

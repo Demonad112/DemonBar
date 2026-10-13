@@ -192,7 +192,7 @@ test('the repo plugin files carry the Demon profile (what the marketplace route 
   assert.ok(same('plugins/demonbar/hooks/theme.ts', 'profiles/Demon/theme.ts'))
   assert.ok(same('plugins/demonbar-skins/hooks/rows.tsx', 'profiles/Demon/skins-overrides/rows.tsx'))
   assert.ok(same('plugins/demonbar-skins/hooks/register.tsx', 'plugins/demonbar-skins/skins-register-patch.tsx'))
-  assert.strictEqual(fs.readFileSync(path.join(root, 'plugins/demonbar/bin/active-profile.txt'), 'utf8').trim(), 'ccstatusline')
+  assert.strictEqual(fs.readFileSync(path.join(root, 'plugins/demonbar/bin/active-profile.txt'), 'utf8').trim(), 'demonbar')
 })
 
 test('install works when the package sits inside a node_modules folder (npx layout)', () => {

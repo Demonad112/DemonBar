@@ -4,7 +4,7 @@ import type { Register } from 'claude-code'
 import type { Footer } from '../types'
 import { THEME as T } from './theme'
 
-const footersAtom = atom({ plugin: 'statusbar', key: 'footers' } as const, [] as Footer[])
+const footersAtom = atom({ plugin: 'demonbar', key: 'footers' } as const, [] as Footer[])
 
 // Footers are stored in register.tsx at turn.complete and matched to the reply's final text block,
 // which is the turn's `answer`. The skins plugin owns the "my message" bubble, so this does not touch UserMessage.

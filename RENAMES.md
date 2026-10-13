@@ -1,6 +1,10 @@
 # RENAMES: planned old -> new names
 
-Nothing in this repo is renamed yet. The copy matches what was tested locally, so a rename is a separate,
+**Done:** #1 (backend value `demonbar`; the old value `ccstatusline` is still accepted) and #2 (mod plugin `demonbar`,
+atom namespace and `PluginState` key). **Still pending:** #3, #4, #5. The tables below are the original build-time
+listing, so the line numbers for #1 and #2 are stale.
+
+The copy matches what was tested locally, so a rename is a separate,
 mechanical pass the owner applies in GitHub at push time. Line numbers below were generated from the tree at
 build time (`grep -rnE <pattern>`); re-run the listed search to refresh them after edits.
 

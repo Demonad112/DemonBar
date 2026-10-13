@@ -13,15 +13,15 @@ import { THEME as T } from './theme'
 import { register as toolRowsUi } from './tool-rows'
 
 // The same atoms are declared again in msg-chrome.tsx and panes.tsx, where they are read; plugin and key match.
-const snapAtom = atom({ plugin: 'statusbar', key: 'snap' } as const, null)
-const tickAtom = atom({ plugin: 'statusbar', key: 'tick' } as const, 0)
-const callsAtom = atom({ plugin: 'statusbar', key: 'calls' } as const, [] as Call[])
+const snapAtom = atom({ plugin: 'demonbar', key: 'snap' } as const, null)
+const tickAtom = atom({ plugin: 'demonbar', key: 'tick' } as const, 0)
+const callsAtom = atom({ plugin: 'demonbar', key: 'calls' } as const, [] as Call[])
 const gitAtom = atom(
-  { plugin: 'statusbar', key: 'git' } as const,
+  { plugin: 'demonbar', key: 'git' } as const,
   { state: 'unknown', branch: '', stat: '', files: [] } as GitInfo,
 )
-const footersAtom = atom({ plugin: 'statusbar', key: 'footers' } as const, [] as Footer[])
-const costAtStartAtom = atom({ plugin: 'statusbar', key: 'costAtStart' } as const, null as number | null)
+const footersAtom = atom({ plugin: 'demonbar', key: 'footers' } as const, [] as Footer[])
+const costAtStartAtom = atom({ plugin: 'demonbar', key: 'costAtStart' } as const, null as number | null)
 
 // This file owns everything that touches the session: a plugin may register each shared event
 // once, and `$` can't be handed to another file, so the single handler for session.start,
@@ -64,12 +64,13 @@ const take = (limits: { kind: string; percentUsed: number }[]) => {
   if (five) spin.fivePct = five.percentUsed
 }
 
-// When active-profile.txt names ccstatusline, run the dispatcher with a status-line
+// When active-profile.txt names demonbar (or the legacy ccstatusline), run the dispatcher with a status-line
 // JSON rebuilt from the session and return its text. Otherwise undefined.
 async function externalLine($: EngineInterface, u: any, model: string | undefined, now: number) {
   try {
     const p = await runBash($, ['-c',`/usr/bin/tr -d '[:space:]' < "${binPath($, 'active-profile.txt')}"`], { timeoutMs: 5000 })
-    if (p.stdout.trim() !== 'ccstatusline') return undefined
+    const backend = p.stdout.trim()
+    if (backend !== 'demonbar' && backend !== 'ccstatusline') return undefined
 
     const rate: Record<string, unknown> = {}
     for (const r of u.rateLimits as { kind: string; percentUsed: number; resetsAt?: string }[]) {

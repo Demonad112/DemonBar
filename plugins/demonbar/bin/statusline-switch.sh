@@ -1,7 +1,7 @@
 #!/bin/bash
 # Status line dispatcher: picks the backend named in active-profile.txt.
 #   custom        -> our bars, burn rate, ETA (statusline.js with Node; statusline.sh + jq only as a last resort)
-#   ccstatusline  -> ccstatusline with its config (~/.config/ccstatusline/settings.json)
+#   demonbar      -> ccstatusline row backend with its config (~/.config/ccstatusline/settings.json); legacy value: ccstatusline
 # Anything unknown, or a missing ccstatusline install, falls back to custom. Never prints errors.
 # No user name or install path is assumed: npm and Node dirs are found through $APPDATA / $ProgramFiles.
 PATH="/usr/bin:/bin:$PATH"
@@ -26,7 +26,7 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 profile=$(tr -d '[:space:]' < "$DIR/active-profile.txt" 2>/dev/null)
 input=$(cat)
 
-if [ "$profile" = "ccstatusline" ] && command -v ccstatusline >/dev/null 2>&1; then
+if { [ "$profile" = "demonbar" ] || [ "$profile" = "ccstatusline" ]; } && command -v ccstatusline >/dev/null 2>&1; then
   printf '%s' "$input" | ccstatusline 2>/dev/null
   exit 0
 fi
