@@ -1,0 +1,17 @@
+{
+  "name": "demonbar",
+  "description": "DemonBar: Demon (red) / Demonad (blue) status band, spinner, footer, panes and skins for Claude Code.",
+  "owner": { "name": "DemonBar" },
+  "plugins": [
+    {
+      "name": "demonbar",
+      "source": "./plugins/demonbar",
+      "description": "Status band, spinner, reply footer, panes, tool rows and the /demonbar profile switch."
+    },
+    {
+      "name": "demonbar-skins",
+      "source": "./plugins/demonbar-skins",
+      "description": "Skins (message bubble, code and table cards) patched for DemonBar. MIT, based on hellosverre/claude-skins."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "custom": {
+    "demonad": {
+      "name": "demonad",
+      "label": "demonad",
+      "base": "nord",
+      "palette": {
+        "user": "#4fd8ff",
+        "fg": "#dcece6",
+        "muted": "#7f9f98",
+        "read": "#9bbf5a",
+        "write": "#f5c542",
+        "run": "#ff9d2e",
+        "search": "#5fd6b8",
+        "web": "#6fa8ff",
+        "mcp": "#b5c7d9",
+        "other": "#6f8a85",
+        "surface": "#0e1a1f",
+        "zebra": "#132127",
+        "ok": "#8fd18a",
+        "err": "#ff4d4d",
+        "warn": "#f5b04a"
+      },
+      "spinner": ["Deploying", "Scanning", "Flanking", "Recharging", "Regrouping", "Locking On", "Dropping In", "Engaging"],
+      "done": ["Finished the Fight", "Secured", "Cleared", "Extracted"]
+    },
+    "demon": {
+      "name": "demon",
+      "label": "demon",
+      "base": "demon-dusk",
+      "palette": {
+        "user": "#d7263d",
+        "fg": "#f5f0e6",
+        "muted": "#8a6f72",
+        "read": "#ff6a00",
+        "write": "#ffb703",
+        "run": "#ff6a00",
+        "search": "#b8a2a4",
+        "web": "#a78a7f",
+        "mcp": "#b8a2a4",
+        "other": "#6b4a4f",
+        "surface": "#170b0e",
+        "zebra": "#1b0f12",
+        "ok": "#8fd18a",
+        "err": "#ff4d4d",
+        "warn": "#ffb703"
+      },
+      "spinner": ["Brooding", "Summoning", "Binding", "Devouring", "Rending"],
+      "done": ["Devoured", "Claimed", "Sealed", "Consumed"]
+    },
+    "hellfire": {
+      "name": "hellfire",
+      "label": "hellfire",
+      "base": "demon-dusk",
+      "palette": {
+        "user": "#ff2fb3",
+        "read": "#c77dff",
+        "write": "#ff3b30",
+        "run": "#ff9f1c",
+        "search": "#9d4edd",
+        "web": "#ff6fb5",
+        "mcp": "#7df9ff",
+        "other": "#b08cc8",
+        "muted": "#a98bc0",
+        "fg": "#f3e8ff",
+        "surface": "#2a1238",
+        "zebra": "#1f0d2b"
+      },
+      "spinner": ["Summoning", "Brooding", "Conjuring", "Smoldering", "Hexing", "Devouring"],
+      "done": ["Cursed", "Banished", "Sealed", "Consumed"]
+    }
+  },
+  "prefs": {
+    "skin": "demon",
+    "icons": "unicode",
+    "rail": false,
+    "tables": true,
+    "shimmer": false,
+    "band": false,
+    "clipOutput": false
+  }
+}
