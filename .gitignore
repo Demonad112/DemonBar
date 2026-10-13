@@ -1,0 +1,11 @@
+node_modules/
+*.zip
+*.tgz
+portable/
+current-profile.txt
+state.json
+backup/
+.claude/types/
+.claude-plugin/types/
+*.log
+.DS_Store
